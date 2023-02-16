@@ -73,7 +73,7 @@ Nota: se puede omitir el crear el menú por funciones que tengan la misma funcio
 almacenar gatos en la carpeta de data llamada CatFileDataSource. Si se desean almacenar más información con otros
 modelos, se deberá tomar esta clase como plantilla cambiando el modelo Cat por el deseado.**
 
-**Ejercicio 6**
+**Ejercicio 6 (opcional)**
 Esta parte es un extra. El ejercicio deberá realizar lo siguiente:
 
 - Se iniciará con el fichero vacío.
@@ -93,6 +93,7 @@ Esta parte es un extra. El ejercicio deberá realizar lo siguiente:
   "has_virus": false
   }
   ``
-**Ejercicio 7**
+  
+**Ejercicio 7 (opcional)**
 - En Git crearíamos la rama master y ramas por funcionalidades.
 - Colabora con un compañero y haz pull request para que te las revise y te de el aprobado para hacer merge a master.
