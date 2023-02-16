@@ -93,3 +93,6 @@ Esta parte es un extra. El ejercicio deberá realizar lo siguiente:
   "has_virus": false
   }
   ``
+**Ejercicio 7**
+- En Git crearíamos la rama master y ramas por funcionalidades.
+- Colabora con un compañero y haz pull request para que te las revise y te de el aprobado para hacer merge a master.
