@@ -44,19 +44,19 @@ nombre, apellidos, dni, cuenta bancaria.
 
 ## Preguntas a resolver
 
-**Ejercicio 1**
+**Ejercicio 1**  
 Haz un fork del proyecto. Un fork es copiar el proyecto en tu cuenta de GitHub. Añade al profesor como revisor.
 
-**Ejercicio 2**
+**Ejercicio 2**  
 Identifica en el ejercicio cada una de las partes por las que se pasa en el desarrollo del software.
 
-**Ejercicio 3**
+**Ejercicio 3**  
 Crear el Diagrama de Clases (dominio). Poned atención en las cardinalidades, flechas, rombos, etc.
 
-**Ejercicio 4**
+**Ejercicio 4**  
 Crear los Casos de Uso necesarios para gestionar lo indicado en el problema.
 
-**Ejercicio 5**
+**Ejercicio 5**   
 Crear un menú con las siguientes opciones:
 
 1. Añadir un gato. Esta opción permite añadir al sistema un gato. Se pedirán los datos necesarios.
@@ -73,7 +73,7 @@ Nota: se puede omitir el crear el menú por funciones que tengan la misma funcio
 almacenar gatos en la carpeta de data llamada CatFileDataSource. Si se desean almacenar más información con otros
 modelos, se deberá tomar esta clase como plantilla cambiando el modelo Cat por el deseado.**
 
-**Ejercicio 6 (opcional)**
+**Ejercicio 6 (opcional)**  
 Esta parte es un extra. El ejercicio deberá realizar lo siguiente:
 
 - Se iniciará con el fichero vacío.
@@ -94,6 +94,6 @@ Esta parte es un extra. El ejercicio deberá realizar lo siguiente:
   }
   ``
   
-**Ejercicio 7 (opcional)**
+**Ejercicio 7 (opcional)**  
 - En Git crearíamos la rama master y ramas por funcionalidades.
 - Colabora con un compañero y haz pull request para que te las revise y te de el aprobado para hacer merge a master.
