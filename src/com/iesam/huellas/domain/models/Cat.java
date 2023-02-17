@@ -1,5 +1,7 @@
 package com.iesam.huellas.domain.models;
 
+import com.google.gson.Gson;
+
 public class Cat extends Animal{
     //Atributos
     private boolean virus;
@@ -11,5 +13,10 @@ public class Cat extends Animal{
 
     public void setVirus(boolean virus) {
         this.virus = virus;
+    }
+
+    @Override
+    public String toString() {
+        return new Gson().toJson(this);
     }
 }
