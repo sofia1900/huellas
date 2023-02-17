@@ -1,1 +1,1 @@
-[{"id":"1","fecha":"17/02/2023","adoptante":{"fechaNac":"19/05/2000","direccion":"AVILA","id":"1","nombre":"Sofia","apellidos":"Jimenez Lapido","dni":"00000000A"}}]
+[{"id":"1","fecha":"17/02/2023","adoptante":{"fechaNac":"19/05/2000","direccion":"AVILA","id":"1","nombre":"Sofia","apellidos":"Jimenez Lapido","dni":"00000000A"}},{"id":"2","fecha":"12/05/2023","animal":{"virus":false,"id":"1","nombre":"Pelusa","fechaNac":"25/10/2021","sexo":"H"},"adoptante":{"fechaNac":"19/05/2000","direccion":"AVILA","id":"1","nombre":"Sofia","apellidos":"Jimenez Lapido","dni":"00000000A"}}]

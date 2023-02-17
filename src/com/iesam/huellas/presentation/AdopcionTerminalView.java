@@ -23,6 +23,7 @@ public class AdopcionTerminalView {
         GetAdoptanteUseCase getAdoptanteUseCase = new GetAdoptanteUseCase(adoptanteDataRepository);
         GetCatUseCase getCatUseCase = new GetCatUseCase(catDataRepository);
         AddAdopcionUseCase addAdopcionUseCase = new AddAdopcionUseCase(registroDataRepository);
+        DeleteCatUseCase deleteCatUseCase = new DeleteCatUseCase(catDataRepository);
 
         System.out.println("Introduce el id de la adopcion");
         registro.setId(scanner.nextLine());
@@ -30,14 +31,20 @@ public class AdopcionTerminalView {
         registro.setFecha(scanner.nextLine());
         System.out.println("Introduce el id de la persona adoptante");
         registro.setAdoptante(getAdoptanteUseCase.execute(scanner.nextLine()));
+        System.out.println("Introduce el id del gato");
+        String id = scanner.nextLine();
+        registro.setAnimal(getCatUseCase.execute(id));
+        /*
         System.out.println("Introduce si el animal es gato o perro");
-        
-        if (scanner.nextLine() == "gato"){
+        String animal = scanner.nextLine();
+        if (animal == "gato"){
             System.out.println("Introduce el id del gato");
             registro.setAnimal(getCatUseCase.execute(scanner.nextLine()));
         }
+         */
 
         addAdopcionUseCase.execute(registro);
+        deleteCatUseCase.execute(id);
 
     }
 
