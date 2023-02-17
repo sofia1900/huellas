@@ -27,7 +27,9 @@ public class Main {
             System.out.println("2. Eliminar gato.");
             System.out.println("3. Listar gatos.");
             System.out.println("4. Añadir persona (adoptante).");
-            System.out.println("5. Salir.");
+            System.out.println("5. Nueva adopcion.");
+            System.out.println("6. Listar adopciones realizadas.");
+            System.out.println("7. Salir.");
             System.out.println("");
             opcion = scanner.nextInt();
             sobras = scanner.nextLine(); //para que no haya problemas con el siguiente dato
@@ -44,9 +46,13 @@ public class Main {
                 case 4:
                     adoptanteTerminalView.nuevoAdoptante();
                     break;
+                case 5:
+                    break;
+                case 6:
+                    break;
             }
 
-        }while (opcion < 5);
+        }while (opcion < 7);
 
         /*
         //CatDataRepository
