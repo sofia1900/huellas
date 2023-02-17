@@ -51,7 +51,7 @@ public class CatFileLocalDataSource {
     }
 
 
-    public Cat findById(Integer catId) {
+    public Cat findById(String catId) {
         List<Cat> cats = findAll();
         for (Cat cat : cats) {
             if (Objects.equals(cat.getId(), catId)) {
@@ -78,6 +78,16 @@ public class CatFileLocalDataSource {
         return new ArrayList<Cat>();
     }
 
+    public void delete(String catId) {
+        List<Cat> cats = findAll();
+        List<Cat> newList = new ArrayList<>();
+        for (Cat cat : cats) {
+            if (!Objects.equals(cat.getId(), catId)) {
+                newList.add(cat);
+            }
+        }
+        saveToFile(newList);
+    }
     public static CatFileLocalDataSource getInstance() {
         if (instance == null) {
             instance = new CatFileLocalDataSource();
