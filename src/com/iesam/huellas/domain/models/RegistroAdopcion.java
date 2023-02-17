@@ -1,5 +1,7 @@
 package com.iesam.huellas.domain.models;
 
+import com.google.gson.Gson;
+
 public class RegistroAdopcion {
 
     //Atributos
@@ -40,5 +42,10 @@ public class RegistroAdopcion {
 
     public void setAdoptante(Adoptante adoptante) {
         this.adoptante = adoptante;
+    }
+
+    @Override
+    public String toString() {
+        return new Gson().toJson(this);
     }
 }
