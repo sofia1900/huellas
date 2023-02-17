@@ -34,6 +34,7 @@ public class AdopcionTerminalView {
         System.out.println("Introduce el id del gato");
         String id = scanner.nextLine();
         registro.setAnimal(getCatUseCase.execute(id));
+
         /*
         System.out.println("Introduce si el animal es gato o perro");
         String animal = scanner.nextLine();
