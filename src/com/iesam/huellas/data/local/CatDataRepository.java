@@ -21,8 +21,7 @@ public class CatDataRepository implements CatRepository {
             CatApiRemoteDataSource remoteDataSource = new CatApiRemoteDataSource();
             List<Cat> cats = remoteDataSource.getCats();
 
-            CatFileLocalDataSource fileLocalDataSource = CatFileLocalDataSource.getInstance();
-            fileLocalDataSource.saveList(cats);
+            catLocalDataSource.saveList(cats);
         }
         return catLocalDataSource.findAll();
     }
