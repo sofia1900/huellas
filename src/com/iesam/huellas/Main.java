@@ -18,12 +18,6 @@ public class Main {
         Integer opcion;
         String sobras;
 
-        //Inicializar fichero cats.txt si no existe
-        File archivo = new File("cats.txt");
-        if (!archivo.exists()) {
-            CatFileLocalDataSource catFile = CatFileLocalDataSource.getInstance();
-        }
-
 
         do {
             System.out.println("");
