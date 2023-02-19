@@ -1,7 +1,6 @@
 package com.iesam.huellas.presentation;
 
 import com.iesam.huellas.data.local.CatDataRepository;
-import com.iesam.huellas.domain.CatRepository;
 import com.iesam.huellas.domain.models.Cat;
 import com.iesam.huellas.domain.useCases.AddCatUseCase;
 import com.iesam.huellas.domain.useCases.DeleteCatUseCase;

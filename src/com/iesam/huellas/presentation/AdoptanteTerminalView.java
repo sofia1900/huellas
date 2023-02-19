@@ -1,7 +1,6 @@
 package com.iesam.huellas.presentation;
 
 import com.iesam.huellas.data.local.AdoptanteDataRepository;
-import com.iesam.huellas.domain.AdoptanteRepository;
 import com.iesam.huellas.domain.models.Adoptante;
 import com.iesam.huellas.domain.useCases.AddAdoptanteUseCase;
 

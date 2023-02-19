@@ -3,11 +3,9 @@ package com.iesam.huellas.presentation;
 import com.iesam.huellas.data.local.AdoptanteDataRepository;
 import com.iesam.huellas.data.local.CatDataRepository;
 import com.iesam.huellas.data.local.RegistroDataRepository;
-import com.iesam.huellas.domain.models.Cat;
 import com.iesam.huellas.domain.models.RegistroAdopcion;
 import com.iesam.huellas.domain.useCases.*;
 
-import java.net.CacheRequest;
 import java.util.List;
 import java.util.Scanner;
 

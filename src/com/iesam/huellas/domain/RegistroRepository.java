@@ -1,6 +1,5 @@
 package com.iesam.huellas.domain;
 
-import com.iesam.huellas.domain.models.Cat;
 import com.iesam.huellas.domain.models.RegistroAdopcion;
 
 import java.util.List;
