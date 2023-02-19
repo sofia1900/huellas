@@ -1,6 +1,8 @@
 package com.iesam.huellas.presentation;
 
 import com.iesam.huellas.data.local.CatDataRepository;
+import com.iesam.huellas.data.local.CatFileLocalDataSource;
+import com.iesam.huellas.data.remote.CatApiRemoteDataSource;
 import com.iesam.huellas.domain.models.Cat;
 import com.iesam.huellas.domain.useCases.AddCatUseCase;
 import com.iesam.huellas.domain.useCases.DeleteCatUseCase;
@@ -40,12 +42,30 @@ public class GatosTerminalView {
         deleteCatUseCase.execute(id);
     }
 
-    public void listarGato (){
+    public void listarGato () {
         ListCatsUseCase listCatsUseCase = new ListCatsUseCase(catDataRepository);
 
         List<Cat> catList = listCatsUseCase.execute();
-        for (Cat cat : catList) {
-            System.out.println(cat);
+
+        if (catList.size() == 0) {
+
+            //CatDataRepository
+            CatApiRemoteDataSource remoteDataSource = new CatApiRemoteDataSource();
+            List<Cat> cats = remoteDataSource.getCats();
+
+            CatFileLocalDataSource fileLocalDataSource = CatFileLocalDataSource.getInstance();
+            fileLocalDataSource.saveList(cats);
+
+            List<Cat> catListNew = listCatsUseCase.execute();
+
+            for (Cat cat : catListNew) {
+                System.out.println(cat);
+            }
+
+        } else {
+            for (Cat cat : catList) {
+                System.out.println(cat);
+            }
         }
     }
 }

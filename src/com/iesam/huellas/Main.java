@@ -51,14 +51,5 @@ public class Main {
             }
 
         } while (opcion < 7);
-
-        /*
-        //CatDataRepository
-        CatApiRemoteDataSource remoteDataSource = new CatApiRemoteDataSource();
-        List<Cat> cats = remoteDataSource.getCats();
-
-        CatFileLocalDataSource fileLocalDataSource = CatFileLocalDataSource.getInstance();
-        fileLocalDataSource.saveList(cats);
-         */
     }
 }
