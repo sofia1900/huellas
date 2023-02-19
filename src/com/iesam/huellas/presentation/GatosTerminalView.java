@@ -47,6 +47,7 @@ public class GatosTerminalView {
 
         List<Cat> catList = listCatsUseCase.execute();
 
+        /*  Se puede realizar así o haciendo la modificación en CatDataRepository
         if (catList.size() == 0) {
 
             //CatDataRepository
@@ -67,5 +68,11 @@ public class GatosTerminalView {
                 System.out.println(cat);
             }
         }
+        */
+
+        for (Cat cat : catList) {
+            System.out.println(cat);
+        }
+
     }
 }

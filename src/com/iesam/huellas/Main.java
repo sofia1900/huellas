@@ -1,9 +1,11 @@
 package com.iesam.huellas;
 
+import com.iesam.huellas.data.local.CatFileLocalDataSource;
 import com.iesam.huellas.presentation.AdopcionTerminalView;
 import com.iesam.huellas.presentation.AdoptanteTerminalView;
 import com.iesam.huellas.presentation.GatosTerminalView;
 
+import java.io.File;
 import java.util.Scanner;
 
 public class Main {
@@ -15,6 +17,13 @@ public class Main {
         AdopcionTerminalView adopcionTerminalView = new AdopcionTerminalView();
         Integer opcion;
         String sobras;
+
+        //Inicializar fichero cats.txt si no existe
+        File archivo = new File("cats.txt");
+        if (!archivo.exists()) {
+            CatFileLocalDataSource catFile = CatFileLocalDataSource.getInstance();
+        }
+
 
         do {
             System.out.println("");
