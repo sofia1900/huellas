@@ -51,7 +51,7 @@ public class CatFileLocalDataSource {
     }
 
 
-    public Cat findById(String catId) {
+    public Cat findById(Integer catId) {
         List<Cat> cats = findAll();
         for (Cat cat : cats) {
             if (Objects.equals(cat.getId(), catId)) {
@@ -78,7 +78,7 @@ public class CatFileLocalDataSource {
         return new ArrayList<Cat>();
     }
 
-    public void delete(String catId) {
+    public void delete(Integer catId) {
         List<Cat> cats = findAll();
         List<Cat> newList = new ArrayList<>();
         for (Cat cat : cats) {

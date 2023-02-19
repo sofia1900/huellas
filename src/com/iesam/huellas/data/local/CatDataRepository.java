@@ -18,12 +18,12 @@ public class CatDataRepository implements CatRepository {
     }
 
     @Override
-    public void delete(String idCat) {
+    public void delete(Integer idCat) {
         catLocalDataSource.delete(idCat);
     }
 
     @Override
-    public Cat findById(String idCat) {
+    public Cat findById(Integer idCat) {
         return catLocalDataSource.findById(idCat);
     }
 }

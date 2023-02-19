@@ -17,7 +17,8 @@ public class GatosTerminalView {
         AddCatUseCase  addCatUseCase = new AddCatUseCase(catDataRepository);
         Cat cat = new Cat();
         System.out.println("Introduce un id");
-        cat.setId(scanner.nextLine());
+        cat.setId(scanner.nextInt());
+        String sobras = scanner.nextLine(); //para que no haya problemas con el siguiente dato
         System.out.println("Introduce el nombre");
         cat.setNombre(scanner.nextLine());
         System.out.println("Introduce la fecha de nacimiento");
@@ -32,9 +33,10 @@ public class GatosTerminalView {
 
     public void eliminarGato(){
         DeleteCatUseCase deleteCatUseCase = new DeleteCatUseCase(catDataRepository);
-        String id;
+        Integer id;
         System.out.println("Introduce el id del gato que desea eliminar");
-        id = scanner.nextLine();
+        id = scanner.nextInt();
+        String sobras = scanner.nextLine(); //para que no haya problemas con el siguiente dato
         deleteCatUseCase.execute(id);
     }
 

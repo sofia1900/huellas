@@ -7,42 +7,42 @@ public class Animal {
         protected para que puedan ser heredados por las clases hijas,
         pero no por el resto de clases.
      */
-    protected String id;
-    protected String nombre;
-    protected String fechaNac;
-    protected String sexo;
+    protected Integer id;
+    protected String name;
+    protected String date_birth;
+    protected String sex;
 
 
     //Getters and Setters
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
     public String getNombre() {
-        return nombre;
+        return name;
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.name = nombre;
     }
 
     public String getFechaNac() {
-        return fechaNac;
+        return date_birth;
     }
 
     public void setFechaNac(String fechaNac) {
-        this.fechaNac = fechaNac;
+        this.date_birth = fechaNac;
     }
 
     public String getSexo() {
-        return sexo;
+        return sex;
     }
 
     public void setSexo(String sexo) {
-        this.sexo = sexo;
+        this.sex = sexo;
     }
 }

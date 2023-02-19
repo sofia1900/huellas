@@ -10,7 +10,7 @@ public class GetCatUseCase {
         this.catRepository = catRepository;
     }
 
-    public Cat execute(String idCat){
+    public Cat execute(Integer idCat){
         return catRepository.findById(idCat);
     }
 }

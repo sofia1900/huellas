@@ -30,7 +30,8 @@ public class AdopcionTerminalView {
         System.out.println("Introduce el id de la persona adoptante");
         registro.setAdoptante(getAdoptanteUseCase.execute(scanner.nextLine()));
         System.out.println("Introduce el id del gato");
-        String id = scanner.nextLine();
+        Integer id = scanner.nextInt();
+        String sobras = scanner.nextLine(); //para que no haya problemas con el siguiente dato
         registro.setAnimal(getCatUseCase.execute(id));
 
         /*
