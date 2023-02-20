@@ -7,6 +7,5 @@ import java.util.List;
 public interface CatRepository {
     public void save(Cat cat);
     public List<Cat> getAll();
-    public void delete (String idCat);
-    public Cat findById (String idAdoptante);
+    public void delete (Integer idCat);
 }

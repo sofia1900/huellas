@@ -9,8 +9,7 @@ public class DeleteCatUseCase {
         this.catRepository = catRepository;
     }
 
-    public void execute (String idCat){
+    public void execute (Integer idCat){
         catRepository.delete(idCat);
-        System.out.println("Gato eliminado correctamente");
     }
 }
