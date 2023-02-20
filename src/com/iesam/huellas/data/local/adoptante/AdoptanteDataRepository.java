@@ -5,7 +5,11 @@ import com.iesam.huellas.domain.models.Adoptante;
 
 public class AdoptanteDataRepository implements AdoptanteRepository {
 
-    private AdoptanteFileLocalDataSource adoptanteLocalDataSource = AdoptanteFileLocalDataSource.getInstance();
+    private AdoptanteLocalDataSource adoptanteLocalDataSource;
+
+    public AdoptanteDataRepository (AdoptanteLocalDataSource adoptanteLocalDataSource){
+        this.adoptanteLocalDataSource = adoptanteLocalDataSource;
+    }
 
     @Override
     public void save(Adoptante adoptante) {
