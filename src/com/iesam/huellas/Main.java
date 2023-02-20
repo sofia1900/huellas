@@ -5,7 +5,6 @@ import com.iesam.huellas.data.local.CatFileLocalDataSource;
 import com.iesam.huellas.data.remote.CatApiRemoteDataSource;
 import com.iesam.huellas.domain.models.Cat;
 import com.iesam.huellas.domain.useCases.DeleteCatUseCase;
-import com.iesam.huellas.presentation.AdoptanteTerminalView;
 import com.iesam.huellas.presentation.GatosTerminalView;
 
 import java.util.List;
@@ -16,7 +15,6 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         GatosTerminalView gatosTerminalView = new GatosTerminalView();
-        AdoptanteTerminalView adoptanteTerminalView = new AdoptanteTerminalView();
         Integer opcion;
         String sobras;
 
@@ -26,8 +24,7 @@ public class Main {
             System.out.println("1. Añadir gato.");
             System.out.println("2. Eliminar gato.");
             System.out.println("3. Listar gatos.");
-            System.out.println("4. Añadir persona (adoptante).");
-            System.out.println("5. Salir.");
+            System.out.println("4. Salir.");
             System.out.println("");
             opcion = scanner.nextInt();
             sobras = scanner.nextLine(); //para que no haya problemas con el siguiente dato
@@ -41,12 +38,9 @@ public class Main {
                 case 3:
                     gatosTerminalView.listarGato();
                     break;
-                case 4:
-                    adoptanteTerminalView.nuevoAdoptante();
-                    break;
             }
 
-        }while (opcion < 5);
+        }while (opcion < 4);
 
         /*
         //CatDataRepository

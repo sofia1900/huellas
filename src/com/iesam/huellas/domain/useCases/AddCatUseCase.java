@@ -12,7 +12,6 @@ public class AddCatUseCase {
 
     public void execute (Cat cat){
         catRepository.save(cat);
-        System.out.println("Gato añadido correctamente");
     }
 
 }
