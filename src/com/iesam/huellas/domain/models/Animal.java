@@ -8,9 +8,9 @@ public class Animal {
         pero no por el resto de clases.
      */
     protected Integer id;
-    protected String nombre;
-    protected String fechaNac;
-    protected String sexo;
+    protected String name;
+    protected String date_birth;
+    protected String sex;
 
 
     //Getters and Setters
@@ -23,26 +23,26 @@ public class Animal {
     }
 
     public String getNombre() {
-        return nombre;
+        return name;
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.name = nombre;
     }
 
     public String getFechaNac() {
-        return fechaNac;
+        return date_birth;
     }
 
     public void setFechaNac(String fechaNac) {
-        this.fechaNac = fechaNac;
+        this.date_birth = fechaNac;
     }
 
     public String getSexo() {
-        return sexo;
+        return sex;
     }
 
     public void setSexo(String sexo) {
-        this.sexo = sexo;
+        this.sex = sexo;
     }
 }

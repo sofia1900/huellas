@@ -4,15 +4,15 @@ import com.google.gson.Gson;
 
 public class Cat extends Animal{
     //Atributos
-    private boolean virus;
+    private boolean has_virus;
 
     //Getters and Setters
     public boolean isVirus() {
-        return virus;
+        return has_virus;
     }
 
     public void setVirus(boolean virus) {
-        this.virus = virus;
+        this.has_virus = virus;
     }
 
     @Override
