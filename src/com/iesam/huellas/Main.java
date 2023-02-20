@@ -1,11 +1,17 @@
 package com.iesam.huellas;
 
+import com.iesam.huellas.data.local.adoptante.AdoptanteDataRepository;
+import com.iesam.huellas.data.local.adoptante.AdoptanteFileLocalDataSource;
+import com.iesam.huellas.data.local.adoptante.AdoptanteMemLocalDataSource;
 import com.iesam.huellas.data.local.cat.CatDataRepository;
 import com.iesam.huellas.data.local.cat.CatFileLocalDataSource;
 import com.iesam.huellas.data.local.cat.CatMemLocalDataSource;
+import com.iesam.huellas.domain.models.Adoptante;
 import com.iesam.huellas.domain.models.Cat;
+import com.iesam.huellas.domain.useCases.AddAdoptanteUseCase;
 import com.iesam.huellas.domain.useCases.AddCatUseCase;
 import com.iesam.huellas.domain.useCases.ListCatsUseCase;
+import com.iesam.huellas.domain.useCases.ListsAdoptantesUseCase;
 import com.iesam.huellas.presentation.GatosTerminalView;
 
 import java.util.List;
@@ -18,6 +24,9 @@ public class Main {
         GatosTerminalView gatosTerminalView = new GatosTerminalView();
         Integer opcion;
         String sobras;
+
+        //Pasar los datos a memoria
+        datosMemoria();
 
         do{
             System.out.println("");
@@ -53,7 +62,9 @@ public class Main {
          */
     }
 
-    public static void datosMemoria (){
+    public static void datosMemoria () {
+
+        //Gatos
         CatFileLocalDataSource catFileLocalDataSource = CatFileLocalDataSource.getInstance();
         CatMemLocalDataSource catMemLocalDataSource = CatMemLocalDataSource.getInstance();
         CatDataRepository catFDataRepository = new CatDataRepository(catFileLocalDataSource);
@@ -65,4 +76,18 @@ public class Main {
         for (Cat cat : catFile) {
             addCatUseCase.execute(cat);
         }
+
+        //Adoptantes
+        AdoptanteFileLocalDataSource adopanteFileLocalDataSource = AdoptanteFileLocalDataSource.getInstance();
+        AdoptanteMemLocalDataSource adoptanteMemLocalDataSource = AdoptanteMemLocalDataSource.getInstance();
+        AdoptanteDataRepository adopanteFDataRepository = new AdoptanteDataRepository(adopanteFileLocalDataSource);
+        AdoptanteDataRepository adopanteMDataRepository = new AdoptanteDataRepository(adoptanteMemLocalDataSource);
+
+        ListsAdoptantesUseCase listAdoptanteUseCase = new ListsAdoptantesUseCase(adopanteFDataRepository);
+        AddAdoptanteUseCase addAdoptanteUseCase = new AddAdoptanteUseCase(adopanteMDataRepository);
+        List<Adoptante> adoptantes = listAdoptanteUseCase.execute();
+        for (Adoptante adoptante : adoptantes) {
+            addAdoptanteUseCase.execute(adoptante);
+        }
+    }
 }
