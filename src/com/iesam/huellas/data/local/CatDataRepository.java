@@ -18,7 +18,7 @@ public class CatDataRepository implements CatRepository {
     }
 
     @Override
-    public void delete(String idCat) {
+    public void delete(Integer idCat) {
         catLocalDataSource.delete(idCat);
     }
 }
