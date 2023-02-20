@@ -1,4 +1,4 @@
-package com.iesam.huellas.data.local;
+package com.iesam.huellas.data.local.cat;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;

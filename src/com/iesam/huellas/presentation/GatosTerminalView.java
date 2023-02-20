@@ -1,8 +1,8 @@
 package com.iesam.huellas.presentation;
 
-import com.iesam.huellas.data.local.CatDataRepository;
-import com.iesam.huellas.data.local.CatFileLocalDataSource;
-import com.iesam.huellas.data.local.CatMemLocalDataSource;
+import com.iesam.huellas.data.local.cat.CatDataRepository;
+import com.iesam.huellas.data.local.cat.CatFileLocalDataSource;
+import com.iesam.huellas.data.local.cat.CatMemLocalDataSource;
 import com.iesam.huellas.domain.models.Cat;
 import com.iesam.huellas.domain.useCases.AddCatUseCase;
 import com.iesam.huellas.domain.useCases.DeleteCatUseCase;

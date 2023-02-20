@@ -1,4 +1,4 @@
-package com.iesam.huellas.data.local;
+package com.iesam.huellas.data.local.adoptante;
 
 import com.iesam.huellas.domain.AdoptanteRepository;
 import com.iesam.huellas.domain.models.Adoptante;

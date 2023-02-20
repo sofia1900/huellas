@@ -1,4 +1,4 @@
-package com.iesam.huellas.data.local;
+package com.iesam.huellas.data.local.cat;
 import com.iesam.huellas.domain.CatRepository;
 import com.iesam.huellas.domain.models.Cat;
 
