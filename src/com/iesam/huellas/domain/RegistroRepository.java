@@ -7,5 +7,6 @@ import java.util.List;
 public interface RegistroRepository {
 
     public void save(RegistroAdopcion registroAdopcion);
+
     public List<RegistroAdopcion> getAll();
 }

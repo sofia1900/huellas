@@ -8,4 +8,5 @@ public interface CatRepository {
     public void save(Cat cat);
     public List<Cat> getAll();
     public void delete (Integer idCat);
+    public Cat findById(Integer id);
 }

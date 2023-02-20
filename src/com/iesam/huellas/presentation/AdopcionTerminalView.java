@@ -1,8 +1,13 @@
 package com.iesam.huellas.presentation;
 
-import com.iesam.huellas.data.local.AdoptanteDataRepository;
-import com.iesam.huellas.data.local.CatDataRepository;
-import com.iesam.huellas.data.local.RegistroDataRepository;
+import com.iesam.huellas.data.local.adoptante.AdoptanteDataRepository;
+import com.iesam.huellas.data.local.adoptante.AdoptanteMemLocalDataSource;
+import com.iesam.huellas.data.local.cat.CatDataRepository;
+import com.iesam.huellas.data.local.cat.CatFileLocalDataSource;
+import com.iesam.huellas.data.local.cat.CatMemLocalDataSource;
+import com.iesam.huellas.data.local.registro.RegistroDataRepository;
+import com.iesam.huellas.data.local.registro.RegistroFileLocalDataSource;
+import com.iesam.huellas.data.local.registro.RegistroMemLocalDataSource;
 import com.iesam.huellas.domain.models.RegistroAdopcion;
 import com.iesam.huellas.domain.useCases.*;
 
@@ -11,17 +16,32 @@ import java.util.Scanner;
 
 public class AdopcionTerminalView {
     Scanner scanner = new Scanner(System.in);
-    RegistroDataRepository registroDataRepository = new RegistroDataRepository();
-    AdoptanteDataRepository adoptanteDataRepository = new AdoptanteDataRepository();
-    CatDataRepository catDataRepository = new CatDataRepository();
+
+    RegistroFileLocalDataSource registroFileLocalDataSource = RegistroFileLocalDataSource.getIntance();
+    RegistroMemLocalDataSource registroMemLocalDataSource = RegistroMemLocalDataSource.getInstance();
+    RegistroDataRepository registroFDataRepository = new RegistroDataRepository(registroFileLocalDataSource);
+    RegistroDataRepository registroMDataRepository = new RegistroDataRepository(registroMemLocalDataSource);
+
+
+    AdoptanteMemLocalDataSource adoptanteMemLocalDataSource = AdoptanteMemLocalDataSource.getInstance();
+    AdoptanteDataRepository adoptanteMDataRepository = new AdoptanteDataRepository(adoptanteMemLocalDataSource);
+
+    CatFileLocalDataSource catFileLocalDataSource = CatFileLocalDataSource.getInstance();
+    CatMemLocalDataSource catMemLocalDataSource = CatMemLocalDataSource.getInstance();
+    CatDataRepository catFDataRepository = new CatDataRepository(catFileLocalDataSource);
+    CatDataRepository catMDataRepository = new CatDataRepository(catMemLocalDataSource);
 
     public void nuevaAdopcion(){
         RegistroAdopcion registro = new RegistroAdopcion();
 
-        GetAdoptanteUseCase getAdoptanteUseCase = new GetAdoptanteUseCase(adoptanteDataRepository);
-        GetCatUseCase getCatUseCase = new GetCatUseCase(catDataRepository);
-        AddAdopcionUseCase addAdopcionUseCase = new AddAdopcionUseCase(registroDataRepository);
-        DeleteCatUseCase deleteCatUseCase = new DeleteCatUseCase(catDataRepository);
+        GetAdoptanteUseCase getAdoptanteUseCase = new GetAdoptanteUseCase(adoptanteMDataRepository);
+        GetCatUseCase getCatUseCase = new GetCatUseCase(catMDataRepository);
+
+        AddAdopcionUseCase addFAdopcionUseCase = new AddAdopcionUseCase(registroFDataRepository);
+        AddAdopcionUseCase addMAdopcionUseCase = new AddAdopcionUseCase(registroMDataRepository);
+
+        DeleteCatUseCase deleteFCatUseCase = new DeleteCatUseCase(catFDataRepository);
+        DeleteCatUseCase deleteMCatUseCase = new DeleteCatUseCase(catMDataRepository);
 
         System.out.println("Introduce el id de la adopcion");
         registro.setId(scanner.nextLine());
@@ -30,7 +50,7 @@ public class AdopcionTerminalView {
         System.out.println("Introduce el id de la persona adoptante");
         registro.setAdoptante(getAdoptanteUseCase.execute(scanner.nextLine()));
         System.out.println("Introduce el id del gato");
-        String id = scanner.nextLine();
+        Integer id = scanner.nextInt();
         registro.setAnimal(getCatUseCase.execute(id));
 
         /*
@@ -42,13 +62,15 @@ public class AdopcionTerminalView {
         }
          */
 
-        addAdopcionUseCase.execute(registro);
-        deleteCatUseCase.execute(id);
+        addFAdopcionUseCase.execute(registro);
+        addMAdopcionUseCase.execute(registro);
+        deleteMCatUseCase.execute(id);
+        deleteFCatUseCase.execute(id);
 
     }
 
     public void listarAdopciones (){
-        ListAdopcionUseCase listAdopcionUseCase = new ListAdopcionUseCase(registroDataRepository);
+        ListAdopcionUseCase listAdopcionUseCase = new ListAdopcionUseCase(registroMDataRepository);
 
         List<RegistroAdopcion> registroList = listAdopcionUseCase.execute();
         for (RegistroAdopcion registroAdopcion : registroList) {

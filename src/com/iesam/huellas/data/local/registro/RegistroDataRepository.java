@@ -21,4 +21,5 @@ public class RegistroDataRepository implements RegistroRepository {
     public List<RegistroAdopcion> getAll() {
         return registroLocalRepository.findAll();
     }
+
 }

@@ -27,7 +27,7 @@ public class CatDataRepository implements CatRepository {
     }
 
     @Override
-    public Cat findById(String idCat) {
+    public Cat findById(Integer idCat) {
         return catLocalDataSource.findById(idCat);
     }
 }

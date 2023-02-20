@@ -46,6 +46,6 @@ public class RegistroAdopcion {
 
     @Override
     public String toString() {
-        return new Gson().toJson(this);
+        return "ID: " + id + ", fecha de adopcion: " + fecha + ", animal: " + animal.getNombre() + ", adoptante: " + adoptante.getNombre();
     }
 }
