@@ -1,4 +1,4 @@
-package com.iesam.huellas.data.local;
+package com.iesam.huellas.data.local.adoptante;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class AdoptanteFileLocalDataSource {
+public class AdoptanteFileLocalDataSource implements AdoptanteLocalDataSource{
     private static AdoptanteFileLocalDataSource instance = null;
 
     private String nameFile = "adoptantes.txt";
@@ -26,7 +26,7 @@ public class AdoptanteFileLocalDataSource {
 
     private AdoptanteFileLocalDataSource() {
     }
-
+    @Override
     public void save(Adoptante adoptante) {
         List<Adoptante> adoptantes = findAll();
         adoptantes.add(adoptante);
@@ -49,7 +49,7 @@ public class AdoptanteFileLocalDataSource {
         }
     }
 
-
+    @Override
     public Adoptante findById(String adoptanteId) {
         List<Adoptante> adoptantes = findAll();
         for (Adoptante adoptante : adoptantes) {
@@ -59,7 +59,7 @@ public class AdoptanteFileLocalDataSource {
         }
         return null;
     }
-
+    @Override
     public List<Adoptante> findAll() {
         try {
             File myObj = new File(nameFile);
@@ -76,7 +76,7 @@ public class AdoptanteFileLocalDataSource {
         }
         return new ArrayList<Adoptante>();
     }
-
+    @Override
     public void delete(String adoptanteId) {
         List<Adoptante> adoptantes = findAll();
         List<Adoptante> newList = new ArrayList<>();

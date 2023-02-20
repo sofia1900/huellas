@@ -1,4 +1,4 @@
-package com.iesam.huellas.data.local;
+package com.iesam.huellas.data.local.cat;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class CatFileLocalDataSource {
+public class CatFileLocalDataSource implements CatLocalDataSource {
 
     private static CatFileLocalDataSource instance = null;
 
@@ -28,6 +28,7 @@ public class CatFileLocalDataSource {
     private CatFileLocalDataSource() {
     }
 
+    @Override
     public void save(Cat cat) {
         List<Cat> cats = findAll();
         cats.add(cat);
@@ -50,8 +51,8 @@ public class CatFileLocalDataSource {
         }
     }
 
-
-    public Cat findById(String catId) {
+    @Override
+    public Cat findById(Integer catId) {
         List<Cat> cats = findAll();
         for (Cat cat : cats) {
             if (Objects.equals(cat.getId(), catId)) {
@@ -61,6 +62,7 @@ public class CatFileLocalDataSource {
         return null;
     }
 
+    @Override
     public List<Cat> findAll() {
         try {
             File myObj = new File(nameFile);
@@ -78,11 +80,12 @@ public class CatFileLocalDataSource {
         return new ArrayList<Cat>();
     }
 
-    public void delete(String catId) {
+    @Override
+    public void delete(Integer idCat) {
         List<Cat> cats = findAll();
         List<Cat> newList = new ArrayList<>();
         for (Cat cat : cats) {
-            if (!Objects.equals(cat.getId(), catId)) {
+            if (!Objects.equals(cat.getId(), idCat)) {
                 newList.add(cat);
             }
         }

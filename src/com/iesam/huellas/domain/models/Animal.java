@@ -7,18 +7,18 @@ public class Animal {
         protected para que puedan ser heredados por las clases hijas,
         pero no por el resto de clases.
      */
-    protected String id;
+    protected Integer id;
     protected String nombre;
     protected String fechaNac;
     protected String sexo;
 
 
     //Getters and Setters
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
