@@ -20,7 +20,8 @@ public class GatosTerminalView {
     CatDataRepository catMDataRepository = new CatDataRepository(catMemLocalDataSource);
 
     public void nuevoGato() {
-        AddCatUseCase  addCatUseCase = new AddCatUseCase(catFDataRepository);
+        AddCatUseCase  addFCatUseCase = new AddCatUseCase(catFDataRepository);
+        AddCatUseCase addMCatUseCase = new AddCatUseCase(catMDataRepository);
         Cat cat = new Cat();
         System.out.println("Introduce un id");
         cat.setId(scanner.nextInt());
@@ -34,16 +35,23 @@ public class GatosTerminalView {
         System.out.println("Introduce si tiene el virus de la leucemia felina (true / false)");
         cat.setVirus(scanner.nextBoolean());
 
-        addCatUseCase.execute(cat);
+        addFCatUseCase.execute(cat);
+        addMCatUseCase.execute(cat); //hay que guardarlo en ambos sitios.
+
+        /*Otra opcion para no guardarlo en ambos sitios (al igual que eliminarlo de ambos sitios)
+          es hacerlo solo de memoria y luego al salir pasar los datos de la memoria al fichero.
+         */
     }
 
     public void eliminarGato(){
-        DeleteCatUseCase deleteCatUseCase = new DeleteCatUseCase(catFDataRepository);
+        DeleteCatUseCase deleteFCatUseCase = new DeleteCatUseCase(catFDataRepository);
+        DeleteCatUseCase deleteMCatUseCase = new DeleteCatUseCase(catMDataRepository);
         Integer id;
         System.out.println("Introduce el id del gato que desea eliminar");
         id = scanner.nextInt();
         String sobra = scanner.nextLine();
-        deleteCatUseCase.execute(id);
+        deleteFCatUseCase.execute(id);
+        deleteMCatUseCase.execute(id); //tengo que eliminarlo de un sitio y de otro
     }
 
     public void listarGato (){

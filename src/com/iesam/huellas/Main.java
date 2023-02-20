@@ -5,6 +5,7 @@ import com.iesam.huellas.data.local.CatFileLocalDataSource;
 import com.iesam.huellas.data.local.CatMemLocalDataSource;
 import com.iesam.huellas.data.remote.CatApiRemoteDataSource;
 import com.iesam.huellas.domain.models.Cat;
+import com.iesam.huellas.domain.useCases.AddCatUseCase;
 import com.iesam.huellas.domain.useCases.DeleteCatUseCase;
 import com.iesam.huellas.domain.useCases.ListCatsUseCase;
 import com.iesam.huellas.presentation.GatosTerminalView;
@@ -19,6 +20,10 @@ public class Main {
         GatosTerminalView gatosTerminalView = new GatosTerminalView();
         Integer opcion;
         String sobras;
+
+        //Pasar los datos a memoria
+        datosMemoria();
+
 
         do{
             System.out.println("");
@@ -60,8 +65,12 @@ public class Main {
         CatDataRepository catFDataRepository = new CatDataRepository(catFileLocalDataSource);
         CatDataRepository catMDataRepository = new CatDataRepository(catMemLocalDataSource);
 
-        ListCatsUseCase listCatsUseCase = new ListCatsUseCase(catMDataRepository);
+        ListCatsUseCase listCatsUseCase = new ListCatsUseCase(catFDataRepository);
+        AddCatUseCase addCatUseCase = new AddCatUseCase(catMDataRepository);
         List<Cat> catFile = listCatsUseCase.execute();
+        for (Cat cat : catFile) {
+            addCatUseCase.execute(cat);
+        }
         
     }
 }
