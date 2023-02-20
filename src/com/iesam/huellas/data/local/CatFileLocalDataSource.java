@@ -2,7 +2,7 @@ package com.iesam.huellas.data.local;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.iesam.huellas.domain.Cat;
+import com.iesam.huellas.domain.models.Cat;
 
 import java.io.File;
 import java.io.FileNotFoundException;
