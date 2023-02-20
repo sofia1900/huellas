@@ -7,6 +7,10 @@ import java.util.List;
 public class CatDataRepository implements CatRepository {
     private CatLocalDataSource catLocalDataSource;
 
+    public CatDataRepository(CatLocalDataSource catLocalDataSource) {
+        this.catLocalDataSource = catLocalDataSource;
+    }
+
     @Override
     public void save(Cat cat) {
         catLocalDataSource.save(cat);
