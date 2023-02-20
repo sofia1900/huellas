@@ -5,7 +5,7 @@ import com.iesam.huellas.domain.models.Cat;
 import java.util.List;
 
 public class CatDataRepository implements CatRepository {
-    private CatFileLocalDataSource catLocalDataSource = CatFileLocalDataSource.getInstance();
+    private CatLocalDataSource catLocalDataSource;
 
     @Override
     public void save(Cat cat) {

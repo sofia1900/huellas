@@ -12,6 +12,5 @@ public class DeleteCatUseCase {
 
     public void execute (Integer idCat){
         catRepository.delete(idCat);
-        System.out.println("Gato eliminado correctamente");
     }
 }
