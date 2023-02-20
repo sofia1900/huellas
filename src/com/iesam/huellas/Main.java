@@ -1,7 +1,14 @@
 package com.iesam.huellas;
 
+import com.iesam.huellas.data.local.cat.CatDataRepository;
+import com.iesam.huellas.data.local.cat.CatFileLocalDataSource;
+import com.iesam.huellas.data.local.cat.CatMemLocalDataSource;
+import com.iesam.huellas.domain.models.Cat;
+import com.iesam.huellas.domain.useCases.AddCatUseCase;
+import com.iesam.huellas.domain.useCases.ListCatsUseCase;
 import com.iesam.huellas.presentation.GatosTerminalView;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -45,4 +52,17 @@ public class Main {
         fileLocalDataSource.saveList(cats);
          */
     }
+
+    public static void datosMemoria (){
+        CatFileLocalDataSource catFileLocalDataSource = CatFileLocalDataSource.getInstance();
+        CatMemLocalDataSource catMemLocalDataSource = CatMemLocalDataSource.getInstance();
+        CatDataRepository catFDataRepository = new CatDataRepository(catFileLocalDataSource);
+        CatDataRepository catMDataRepository = new CatDataRepository(catMemLocalDataSource);
+
+        ListCatsUseCase listCatsUseCase = new ListCatsUseCase(catFDataRepository);
+        AddCatUseCase addCatUseCase = new AddCatUseCase(catMDataRepository);
+        List<Cat> catFile = listCatsUseCase.execute();
+        for (Cat cat : catFile) {
+            addCatUseCase.execute(cat);
+        }
 }
